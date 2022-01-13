@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hola Rodri! que tengas una buena semana, y teneme paciencia porfa!!!
         </a>
       </header>
     </div>
