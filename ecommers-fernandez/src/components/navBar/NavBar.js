@@ -1,10 +1,11 @@
-import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from "react-bootstrap"
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
+import Carticon from "../../icon/Carticon"
 
 const NavBar = () => {
   return (
-    <Navbar bg="dark" expand="lg"  variant="dark">
+    <Navbar bg="light" expand="lg"  >
   <Container fluid>
-    <Navbar.Brand href="#">Lore APP</Navbar.Brand>
+    <Navbar.Brand href="#">My APP</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -22,19 +23,12 @@ const NavBar = () => {
             Catalogo Completo
           </NavDropdown.Item>
         </NavDropdown>          
-      </Nav>
-      <Form className="d-flex">
-        <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        />
-        <Button variant="outline-success">Search</Button>
-      </Form>
+      </Nav>     
     </Navbar.Collapse>
+    <Carticon />
   </Container>
 </Navbar>
+
   )
 }
 
