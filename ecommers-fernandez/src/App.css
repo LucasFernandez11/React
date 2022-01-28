@@ -41,3 +41,33 @@
   height: 30px;
  
 }
+
+.buttonCounter1 {
+  background-color: red;
+  color: black;
+}
+.buttonCounter2 {
+  background-color: green;
+  color: black;
+}
+
+.itemListProducts {
+  list-style: none;
+  margin-top: 15px;
+
+}
+
+.contentProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: whitesmoke;
+}
+.imagenProducto, img {
+  display: flex;
+  justify-content: center;
+  width: 50vh;
+  height: 45vh;
+}
