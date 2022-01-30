@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-const ItemCounter = ({ stock, setSotckSelected }) => {
+const ItemCounter = ({ stock, setStockSelected }) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    setSotckSelected(counter);
+    setStockSelected(counter);
   }, [counter]);
 
   const minusCounter = () => {
