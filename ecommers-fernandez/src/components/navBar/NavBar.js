@@ -1,34 +1,74 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
-import Carticon from "../../icon/Carticon"
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
+import "./NavBar.css";
+import CartIcon from "../../icon/CartIcon";
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" expand="lg"  >
-  <Container fluid>
-    <Navbar.Brand href="#">My APP</Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbarScroll" />
-    <Navbar.Collapse id="navbarScroll">
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
-        <Nav.Link href="#action1">Inicio</Nav.Link>
-        <Nav.Link href="#action2">Productos</Nav.Link>
-        <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Accesorios</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Indumentaria</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            Catalogo Completo
-          </NavDropdown.Item>
-        </NavDropdown>          
-      </Nav>     
-    </Navbar.Collapse>
-    <Carticon />
-  </Container>
-</Navbar>
-
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand>
+          <Link to="/">My E-Commerce</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {/* <Nav.Link>
+              <NavLink
+                to="/item"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Item
+              </NavLink>
+            </Nav.Link> */}
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "activeClass" : undefined
+                  }
+                  to="category/cars"
+                >
+                  Carros
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "activeClass" : undefined
+                  }
+                  to="category/phones"
+                >
+                  Teléfonos
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "activeClass" : undefined
+                  }
+                  to="category/audio-interfaces"
+                >
+                  Interfaces de audios
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "activeClass" : undefined
+                  }
+                  to="category/computers"
+                >
+                  Computadores
+                </NavLink>
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+        <CartIcon />
+      </Container>
+    </Navbar>
   )
 }
 

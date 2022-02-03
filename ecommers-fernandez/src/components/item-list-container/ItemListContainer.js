@@ -1,45 +1,36 @@
-import { useEffect, useState } from "react";
-import { productsAPI } from "../../helpers/promises";
+import { useParams } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
+
 import Item from "../item/Item";
 
 const ItemListContainer = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const { products } = useProducts();
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const filterProducts = products.filter(({ category }) => category === id);
 
-  const getProducts = async () => {
-    try {
-      const result = await productsAPI;
-      setProducts(result);
-    } catch (error) {
-      console.log({ error });
-    } finally {
-      setLoading(false);
-      console.log("termina el consumo de api");
-    }
-  };
-
-  if (loading) {
-    return <h1>Espere, cargando...</h1>;
-  }
 
   return (
+    <>
     <div>
-      <h3>Producto seleccionado</h3>
-      <ul>
-      <li className="itemListProducts">{selectedItem && selectedItem.name}</li>
-      <li className="itemListProducts">{selectedItem && selectedItem.description}</li>     
-      <li className="itemListProducts">Cantidad seleccionada: {selectedItem && selectedItem.stock}</li>
-      </ul>
-      <hr />      
-      {products.map((product) => (
-        <Item key={product.id} {...product} setSelectedItem={setSelectedItem} />
-      ))}
+      <h1>Lista de productos</h1>
+      <hr />
+      {!id &&
+        products.map((product) => {
+          if (product.id === "1") {
+            product.image = iphoneXImage;
+          }
+          return <Item key={product.id} {...product} />;
+        })}
+      {id &&
+        filterProducts.map((product) => {
+          if (product.id === "1") {
+            product.image = iphoneXImage;
+          }
+          return <Item key={product.id} {...product} />;
+        })}
     </div>
+    </>
   );
 };
 
