@@ -28,12 +28,9 @@ const ItemDetail = ()=> {
       <li className="itemListProducts">{selectedItem && selectedItem.name}</li>
       <li className="itemListProducts">{selectedItem && selectedItem.description}</li>     
       <li className="itemListProducts">Cantidad seleccionada:  </li>
-      </div>            
+      </div>              
     </div>
-  )
-  
-
- 
+  ) 
   
 };
 

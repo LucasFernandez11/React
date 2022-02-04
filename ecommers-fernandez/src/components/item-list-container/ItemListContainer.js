@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import ItemList from "./ItemList";
@@ -13,16 +14,18 @@ const ItemListContainer = () => {
 
   return (
     <>
-    <div>
-      <h1>Lista de productos</h1>
-      <hr />
-      {
-        !loading ? <ItemList products={filterProducts}/> : <h1>cargando...</h1>
-      }
+      <div>
+        <h1>Lista de productos</h1>
+        <hr /> 
+              <div className="grillaProductos">
+                {
+                  !loading ? <ItemList products={filterProducts}/> : <h1>cargando...</h1>
+                }          
+                
+              </div>      
+                  
       
-
-     
-    </div>
+      </div>
     </>
   );
 };

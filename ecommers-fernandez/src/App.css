@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -59,7 +60,7 @@
 
 .contentProduct {
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items: center;
   margin-top: 20px;
   font-size: 18px;
@@ -70,4 +71,11 @@
   justify-content: center;
   width: 50vh;
   height: 45vh;
+}
+.grillaProductos {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  
 }

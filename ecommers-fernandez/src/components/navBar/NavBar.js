@@ -11,10 +11,10 @@ const NavBar = () => {
           <Link to="/">My E-Commerce</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" >
           <Nav className="me-auto">           
-            <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item>
+            <NavDropdown  title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item >
                 <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
                   to="category/phones"> SmartPhones</NavLink>
               </NavDropdown.Item>
@@ -25,9 +25,9 @@ const NavBar = () => {
               <NavDropdown.Item>
                 <NavLink
                   className={({ isActive }) => isActive ? "activeClass" : undefined}
-                  to="category/pc">Computadoras</NavLink>
+                  to="category/pc">Laptops</NavLink>
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              
               <NavDropdown.Item>
                 <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
                   to="category/accesorios"> Accesorios Gamer</NavLink>

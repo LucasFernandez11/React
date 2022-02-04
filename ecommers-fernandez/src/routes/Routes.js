@@ -10,7 +10,7 @@ const Routes =()=> {
   return (
     <BrowserRouter>
         <NavBar/>
-        <Switch>
+        <Switch>  
         <Route exact path="/" element={<ItemListContainer/>}/>        
         <Route exact path="/category/:idCategory" element={<ItemListContainer/>}/>      
         <Route exact path="/detail/:idDetail" element={<ItemDetail/>}/>  
