@@ -4,12 +4,18 @@ import { productsAPI } from "../helpers/promises";
 const useProducts = () => {
     const [products, setProducts] = useState([]);
 
+    const [loading , setLoading] =  useState(true);
+
     useEffect(()=> {
-        getProducts();
+
+        getProducts()
+        .then(()=>setLoading(false))
     }, []);
+
     const getProducts = async ()=> {
         try {
-            const resault = await productsAPI
+            const result = await productsAPI
+            setProducts(result)
         } catch (error) {
             console.log({error});
             
@@ -20,6 +26,7 @@ const useProducts = () => {
 
     return {
         products,
+        loading
     };
 
 };

@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
-
-import Item from "../item/Item";
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-  const { id } = useParams();
-  const { products } = useProducts();
+  const { idCategory } = useParams();
+  const { products, loading } = useProducts();
 
-  const filterProducts = products.filter(({ category }) => category === id);
+  const filterProducts = idCategory ? products.filter(({ category }) => category === idCategory) : products
+  
+  
 
 
   return (
@@ -15,20 +16,12 @@ const ItemListContainer = () => {
     <div>
       <h1>Lista de productos</h1>
       <hr />
-      {!id &&
-        products.map((product) => {
-          if (product.id === "1") {
-            product.image = iphoneXImage;
-          }
-          return <Item key={product.id} {...product} />;
-        })}
-      {id &&
-        filterProducts.map((product) => {
-          if (product.id === "1") {
-            product.image = iphoneXImage;
-          }
-          return <Item key={product.id} {...product} />;
-        })}
+      {
+        !loading ? <ItemList products={filterProducts}/> : <h1>cargando...</h1>
+      }
+      
+
+     
     </div>
     </>
   );

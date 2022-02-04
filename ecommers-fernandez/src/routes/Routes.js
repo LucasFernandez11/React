@@ -11,10 +11,10 @@ const Routes =()=> {
     <BrowserRouter>
         <NavBar/>
         <Switch>
-        <Route path="/" element={<ItemListContainer/>}/>        
-        <Route path="/category" element={<ItemListContainer/>}/>      
-        <Route path="/detail" element={<ItemDetail/>}/>  
-        <Route path="/*" element={<NotFound/>}/>  
+        <Route exact path="/" element={<ItemListContainer/>}/>        
+        <Route exact path="/category/:idCategory" element={<ItemListContainer/>}/>      
+        <Route exact path="/detail/:idDetail" element={<ItemDetail/>}/>  
+        <Route exact path="/*" element={<NotFound/>}/>  
         </Switch>
     </BrowserRouter>
   );
