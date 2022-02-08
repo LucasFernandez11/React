@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
-import CartIcon from "../../icon/CartIcon";
+import Carticon from "../../icon/CartIcon";
 
 const NavBar = () => {
   return (
@@ -36,7 +36,7 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
         <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
-               to="/"><CartIcon /></NavLink>
+               to="/"><Carticon /></NavLink>
         
       </Container>
     </Navbar>

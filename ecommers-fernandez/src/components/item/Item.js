@@ -8,7 +8,7 @@ const Item = ({p}) => {
   const [stockSelected, setStockSelected] = useState(0);
   const  {id, name, price, description, stock , imagen} = p;
 
-  return (
+  return (  
     <>
       <div className="contentProduct container" >
           <h2>Producto: {name}</h2>
