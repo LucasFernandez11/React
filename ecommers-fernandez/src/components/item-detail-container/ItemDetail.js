@@ -17,7 +17,7 @@ const ItemDetail = ()=> {
     };  
     
   }, [products]);
-  console.log(selectedItem)
+  // console.log(selectedItem)
   return (
     <div className="container contentProduct d-flex align-items-center">
       <h3>Producto seleccionado</h3>
