@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
 const ResizeComponent = () => {
-    
+
+  const {items} = useContext(CartContext);   
+  
   return (
-    <div>Resize component </div>
+  <div>Resize component
+    {/* <h2>{info}</h2> */}
+     </div>
+    
   )
 }
 

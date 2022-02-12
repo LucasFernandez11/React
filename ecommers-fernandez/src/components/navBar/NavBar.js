@@ -36,7 +36,7 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
         <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
-               to="/"><Carticon /></NavLink>
+               to="/cart"><Carticon /></NavLink>
         
       </Container>
     </Navbar>

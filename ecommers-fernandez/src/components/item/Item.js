@@ -8,6 +8,11 @@ const Item = ({p}) => {
   const [stockSelected, setStockSelected] = useState(0);
   const  {id, name, price, description, stock , imagen} = p;
 
+  const onAdd = () => {
+    //agregando producto
+    console.log('agregaste el producto' , id, name)
+  }
+
   return (  
     <>
       <div className="contentProduct container" >
@@ -19,7 +24,8 @@ const Item = ({p}) => {
           <h3></h3>
           <h2 className="fs-5 my-2">Stock disponible: {stock}</h2>
         </div>
-        <ItemCounter stock={stock} setStockSelected={setStockSelected} />
+        
+        <ItemCounter stock={stock} setStockSelected={setStockSelected} onAdd={onAdd} />
         <Link className="my-3" to={`/detail/${id}`}>Seleccionar producto</Link>
       </div>
       <hr />

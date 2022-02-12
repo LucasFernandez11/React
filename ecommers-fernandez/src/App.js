@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from '../src/routes/Routes';
 import ResizeComponent from './components/resize-component/ResizeComponent';
 import { useEffect, useState } from 'react';
+import { CartProvider } from './context/CartContext';
 
 
 
@@ -18,11 +19,11 @@ function App() {
   
   return (
     <div className="App">   
-    <CartProvide>
+    <CartProvider>
     <ResizeComponent/>
         <Routes/>   
 
-    </CartProvide>
+    </CartProvider>
            
 
     </div>

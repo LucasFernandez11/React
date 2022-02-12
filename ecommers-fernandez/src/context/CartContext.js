@@ -1,9 +1,19 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext()
 
-const CartProvider = ({children}) =>{
-    const [info, setinfo] = useState("hola coders")
-    return <CartContext.Provider value={info}>{children}</CartContext.Provider>;
+export const CartProvider = ({children}) =>{
+    const [items, setitems] = useState([])
+    const addItem = (currentItem) => {
+        if (items.some(({item}) => item.id === currentItem.item.id)) return;
+            
+        
+        setitems([...items, currentItem])
+      }
+
+    return <CartContext.Provider value={{
+        items,
+        addItem
+    }}>{children}</CartContext.Provider>;
 
 }
