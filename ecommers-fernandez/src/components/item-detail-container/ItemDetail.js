@@ -1,7 +1,8 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
+import { CartContext } from "../../context/CartContext";
 import ItemCounter from "../item-counter/ItemCounter";
 
 
@@ -9,9 +10,20 @@ const ItemDetail = ()=> {
   const {products} = useProducts();
   const {idDetail} = useParams();
   const [stockSelected, setStockSelected] = useState(0);
-  const  { stock, id } = products;
+  const  { stock, id, name } = products;
   const [selectedItem, setSelectedItem] = useState(null);
-  
+  const { addItem } = useContext(CartContext); 
+  const [quantity, setQuantity] = useState(0);
+  const [userName, setUserName] = useState("");
+
+  const onAdd = (counter) => {
+    addItem({
+      ...selectedItem,
+      cantidad:counter
+    });
+    //agregando producto
+    console.log(selectedItem.id, selectedItem.name)
+  }  
   
   
   useEffect(() => {
@@ -22,6 +34,11 @@ const ItemDetail = ()=> {
     
   }, [products]);
   // console.log(selectedItem)
+
+  
+
+  
+
   return (
     <div className="container contentProduct d-flex align-items-center">
       <h3>Producto seleccionado</h3>
@@ -33,8 +50,10 @@ const ItemDetail = ()=> {
       <li className="itemListProducts">{selectedItem && selectedItem.description}</li>     
       <li className="itemListProducts">Cantidad seleccionada: </li>
       </div>       
-            
+      <ItemCounter stock={stock} setStockSelected={setStockSelected} onAdd={onAdd}/>
       <Link className="my-3" to={`/cart/`}>Terminar compra</Link>
+      
+      
       
       
     </div>

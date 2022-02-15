@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">   
     <CartProvider>
-    <ResizeComponent/>
+    {/* <ResizeComponent/> */}
         <Routes/>   
 
     </CartProvider>

@@ -1,19 +1,38 @@
 import { createContext, useState } from "react";
+import Cart from "../components/cart/Cart";
 
-export const CartContext = createContext()
+export const CartContext = createContext();
 
-export const CartProvider = ({children}) =>{
-    const [items, setitems] = useState([])
-    const addItem = (currentItem) => {
-        if (items.some(({item}) => item.id === currentItem.item.id)) return;
-            
-        
-        setitems([...items, currentItem])
-      }
+export const CartProvider = ({ children }) => {
+  const [items, setItems] = useState([]);
 
-    return <CartContext.Provider value={{
+  const addItem = (currentItem) => {
+
+    const indice = isInCart(currentItem); 
+    
+    if (indice === -1) {
+      setItems([...items, currentItem]); 
+    } else {
+      const cantidadVieja = items[indice].cantidad
+      items[indice].cantidad = cantidadVieja + currentItem.cantidad
+      setItems([...items])
+    }      
+     
+  };
+
+  const isInCart = (itemNuevo)=> {
+    const item = items.find(item => item.id === itemNuevo.id)
+    return items.indexOf(item)
+  }
+
+  return (
+    <CartContext.Provider
+      value={{
         items,
-        addItem
-    }}>{children}</CartContext.Provider>;
-
-}
+        addItem,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
