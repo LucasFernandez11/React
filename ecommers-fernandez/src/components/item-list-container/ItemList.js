@@ -1,12 +1,14 @@
+import { CardGroup } from "react-bootstrap";
 import Item from "../item/Item";
 
 const ItemList = ({products}) => {
   return (
-    <div>
-        {products?.map(p => <Item key={p.id} p={p}/>)}
+    <CardGroup >
+    
+        {products?.map(p => <Item key={p.id} p={p}/>)}   
         
       
-    </div>
+    </CardGroup>
   )
 }
 

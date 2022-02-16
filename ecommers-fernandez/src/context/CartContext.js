@@ -25,11 +25,17 @@ export const CartProvider = ({ children }) => {
     return items.indexOf(item)
   }
 
+  const total = () => {
+		const precioTotal = items.reduce((a, b) => a + b.price * b.qty, 0);
+		return precioTotal;
+	};
+
   return (
     <CartContext.Provider
       value={{
         items,
         addItem,
+       
       }}
     >
       {children}
