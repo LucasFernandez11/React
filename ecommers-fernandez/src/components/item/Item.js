@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ItemCounter from "../item-counter/ItemCounter";
+import ItemCounter from "../item-counter/itemCounter";
 
 
 

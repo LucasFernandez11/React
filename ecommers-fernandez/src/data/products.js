@@ -6,7 +6,7 @@ export const products = [
     imagen: "https://www.isolutionsperu.com/wp-content/uploads/iphone-x.jpg",
     description: "Sistema operativo	iOS 15 Memoria	64 GB  256 GB  RAM	3 GB  Procesador	Apple A11 Bionic",
     category: "phones",
-    stock: 35,
+    stock: 5,
   },
   {
     id: "2",

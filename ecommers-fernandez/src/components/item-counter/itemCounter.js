@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ItemCounter = ({ stock, setStockSelected, onAdd}) => {
+const ItemCounter = ({stock, setStockSelected, onAdd}) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const ItemCounter = ({ stock, setStockSelected, onAdd}) => {
     if (counter <= 0) return;
     setCounter(counter - 1);
   };
-
+ 
   const plusCounter = () => {
     if (counter >= stock) return;
     setCounter(counter + 1);

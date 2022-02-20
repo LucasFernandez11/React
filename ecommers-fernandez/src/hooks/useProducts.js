@@ -1,4 +1,6 @@
+import { collection, getDoc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db } from "../Firebase/config";
 import { productsAPI } from "../helpers/promises";
 
 const useProducts = () => {
@@ -13,14 +15,23 @@ const useProducts = () => {
     }, []);
 
     const getProducts = async ()=> {
+
         try {
-            const result = await productsAPI
-            setProducts(result)
+            const catalogo = []
+           const result = await getDocs(
+               collection(db, 'Productos')            
+           )
+           result.forEach((doc) => {
+               catalogo.push(doc.data())
+            //    console.log(doc.data())
+            // console.log(`${doc.id} => ${doc.data()}`);
+          }); 
+          console.log(catalogo)
+           setProducts(catalogo)
+                     
         } catch (error) {
-            console.log({error});
+            console.log(error)
             
-        }finally {
-            console.log("termina el consumo de productsApi");
         }
     };
 

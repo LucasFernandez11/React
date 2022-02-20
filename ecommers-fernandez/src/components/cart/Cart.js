@@ -1,31 +1,81 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-
+import { Link } from 'react-router-dom';
+import { CartItem } from './CartItem';
+import { Loader } from "../Loader/Loader";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const Cart = () => {
-  const { items, total } = useContext(CartContext);
+  const [loading, setLoading] = useState(true)
+    const {cart, removeItem, clear, totalCart, item} = useContext(CartContext)
+
+    useEffect(() => {
+        setTimeout(()=>{
+            setLoading(false)
+        }, 1000)
+    }, [])
+    
+    return (
+      <div className="cartContainer">
+      { loading ? <Loader/> 
+           : 
+           <>
+              {!cart.length ? <div>
+                                  <h2>Tu carrito esta vacio</h2>
+                                  <button>
+                                      <Link to='/'>Ir al Catalogo</Link>
+                                      </button>
+                              </div> 
+                          :
   
-  console.log(items)
+                          <>
+                              <h2>Tu compra</h2>
+                              {cart.map(( itemCart ) => (
+                            <div key={itemCart.item.id} className="contentProduct container-fluid">
+                            <h3> {itemCart.item.name}</h3>
+                            <div className="row d-flex align-items-center"> 
+                            <div className="imagenProducto col-md-4 "><img src={itemCart.item.imagen} alt={itemCart.item.name}/></div>
+                            <h2 className="fs-4 my-2 col-md-8">Descripción: {itemCart.item.descripcion} </h2>
+                            <h3> ${itemCart.item.price}</h3>
+                            <p className="cartItemPrice">Precio: ${(itemCart.item.price * itemCart.quantity).toFixed(2)}</p>
+                            <button onClick={()=> removeItem(itemCart.item.id)}><FontAwesomeIcon icon={faTrash}/></button>  
+                                           
+                                    
+                                </div>      
+                             </div>
+                    
+                    
+                            ))}     
 
+                              <div>
+                                  <p>Total compra: ${totalCart().toFixed(2)}</p>
+                              </div>
 
-  return (    
-    <div>  
-      <h1>En tu carrito</h1>   
-        {items.map(( item ) => (
-          <div key={item.id} className="contentProduct container" >
-          <h3> {item.name}</h3>
-        <div className="row d-flex align-items-center"> 
-          <div className="imagenProducto col-md-4 "><img src={item.imagen} alt={item.name}/></div>
-          <h2 className="fs-4 my-2 col-md-8">Descripción: {item.description} </h2>
-          <h3> ${item.price}</h3>         
-               
-          {/* <h2 className="fs-5 my-2">Stock disponible: {item.stock}</h2> */}
-        </div>      
+                              <div>
+                                  <button onClick={()=> clear()}>Vaciar carrito</button>
+                            <button><Link to={'/checkout'}>Finalizar compra</Link></button>      
+                              </div>
+                          </>
+             }
+          </>
+      }
+      
+      
       </div>
-
-          
-        ))}     
-    </div>
-  );
+  )
+  
 };
 
 export default Cart;
+// {cart.map(itemCart => (
+//     <CartItem key={itemCart.item.id} item={itemCart} remove={removeItem}/>
+// ))}
+// return (    
+    //   <div>  
+    //     <h1>En tu carrito</h1>   
+    //      
+      //   </div>
+      // );
+      // const { items, total } = useContext(CartContext);
+      
+      // console.log(items)

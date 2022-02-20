@@ -1,0 +1,16 @@
+
+.cartWidge{
+    /* visibility: hidden; */
+    position: absolute;
+    right: 10%;
+    top: 45px;
+    padding: 0 5px;
+  }
+  .cartW-precio{
+    
+  top: 5px;
+  color: black;
+  
+  opacity: 1;
+ 
+}

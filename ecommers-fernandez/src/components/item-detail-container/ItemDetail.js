@@ -3,41 +3,36 @@ import { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import { CartContext } from "../../context/CartContext";
-import ItemCounter from "../item-counter/ItemCounter";
+import ItemCounter from "../item-counter/itemCounter";
 
 
 const ItemDetail = ()=> {  
   const {products} = useProducts();
   const {idDetail} = useParams();
   const [stockSelected, setStockSelected] = useState(0);
-  const  { stock, id, name } = products;
+  const  { stock } = products;
   const [selectedItem, setSelectedItem] = useState(null);
   const { addItem } = useContext(CartContext); 
   const [quantity, setQuantity] = useState(0);
   const [userName, setUserName] = useState("");
 
   const onAdd = (counter) => {
-    addItem({
-      ...selectedItem,
-      cantidad:counter
-    });
+    addItem(
+      selectedItem,
+      counter
+    );
     //agregando producto
-    console.log(selectedItem.id, selectedItem.name)
-  }  
-  
+    // console.log(selectedItem.id, selectedItem.name)
+  }    
   
   useEffect(() => {
     if (products.length > 0){
-      const selectedProduct = products.find((product)=> product.id === idDetail);
+      const selectedProduct = products.find((product)=> product.id === parseInt(idDetail));
       setSelectedItem(selectedProduct);
     };  
     
   }, [products]);
-  // console.log(selectedItem)
-
-  
-
-  
+  // console.log(selectedItem)  
 
   return (
     <div className="container contentProduct d-flex align-items-center">
@@ -48,20 +43,15 @@ const ItemDetail = ()=> {
       <div className="col-md-8">
       <li className="itemListProducts">{selectedItem && selectedItem.name}</li>
       <li className="itemListProducts">{selectedItem && selectedItem.description}</li>     
-      <li className="itemListProducts">Cantidad seleccionada: </li>
+      <li className="itemListProducts">Stock disponible:{selectedItem && selectedItem.stock} </li>
       </div>       
-      <ItemCounter stock={stock} setStockSelected={setStockSelected} onAdd={onAdd}/>
-      <Link className="my-3" to={`/cart/`}>Terminar compra</Link>
-      
-      
+      <ItemCounter stock={selectedItem && selectedItem.stock}  setStockSelected={setStockSelected} onAdd={onAdd}/>
+      <Link className="my-3" to={`/cart/`}>Terminar compra</Link> 
       
       
     </div>
   
   )
-  
-
- 
   
 };
 

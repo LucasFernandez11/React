@@ -1,3 +1,23 @@
 .activeClass {
-    color: green;
+    color: blue;
   }
+  .header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+   .tituloNav {    
+    display: flex;   
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+   .tituloH1 {    
+    font-size: 60px;   
+    color: black;
+    text-decoration: none;
+  }
+  
+
