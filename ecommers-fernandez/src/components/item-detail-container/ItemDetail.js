@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import { CartContext } from "../../context/CartContext";
 import ItemCounter from "../item-counter/itemCounter";
+import { Button, Card, CardGroup } from "react-bootstrap";
 
 
 const ItemDetail = ()=> {  
@@ -35,20 +36,26 @@ const ItemDetail = ()=> {
   // console.log(selectedItem)  
 
   return (
-    <div className="container contentProduct d-flex align-items-center">
-      <h3>Producto seleccionado</h3>
-      <div className="imagenProducto col-md-4 ">{selectedItem && selectedItem.imagen && (
-        <img src={selectedItem.imagen} alt="selectedItemImage" />
-      )}</div>
-      <div className="col-md-8">
-      <li className="itemListProducts">{selectedItem && selectedItem.name}</li>
-      <li className="itemListProducts">{selectedItem && selectedItem.description}</li>     
-      <li className="itemListProducts">Stock disponible:{selectedItem && selectedItem.stock} </li>
-      </div>       
-      <ItemCounter stock={selectedItem && selectedItem.stock}  setStockSelected={setStockSelected} onAdd={onAdd}/>
-      <Link className="my-3" to={`/cart/`}>Terminar compra</Link> 
-      
-      
+    <div className="container contentProduct d-flex align-items-center">    
+      <CardGroup className="mx-auto container">
+          <Card className="my-3" style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={selectedItem && selectedItem.imagen} alt="selectedItemImage" />
+              <Card.Body>
+                <Card.Title>Producto: {selectedItem && selectedItem.name}</Card.Title>
+                <Card.Text>
+                 <p>
+                    Descripción: {selectedItem && selectedItem.descripcion} 
+                   </p>
+                  <p>
+                    Cantidad disponible: {selectedItem && selectedItem.stock} 
+                    </p>
+                </Card.Text>
+                <ItemCounter stock={selectedItem && selectedItem.stock}  setStockSelected={setStockSelected} onAdd={onAdd}/>
+                
+               <Button className="mx-2 mt-3" variant="outline-success" size="lg"><Link className="my-3 text-decoration-none" to={`/cart/`}>Terminar compra</Link></Button>
+              </Card.Body>
+          </Card>
+      </CardGroup>
     </div>
   
   )

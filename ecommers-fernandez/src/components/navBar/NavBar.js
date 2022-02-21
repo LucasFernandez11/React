@@ -7,10 +7,10 @@ const NavBar = () => {
   return (
     <header className="header">
       <div className="tituloNav container-fluid">
-      <Link to="/">
+      <Link className="text-decoration-none" to="/">
                 <h1 className="tituloH1">Bug-Technology</h1>
             </Link>
-        <CartWidge className="cartWidge"/>
+        <CartWidge className="cartWidge text-decoration-none"/>
       </div>
    
 

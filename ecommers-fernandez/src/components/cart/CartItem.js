@@ -8,6 +8,7 @@ export const CartItem = ({item, remove}) => {
             <div className="cartItemInfo">
                 <img src={item.item.img} alt={item.item.title}/>
                 <div>
+                    
                     <p className="cartItemTitle">{item.item.title}</p>
                     <p className="cartItemQuantity">Cantidad: {item.item.quantity}</p>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 
 const ItemCounter = ({stock, setStockSelected, onAdd}) => {
   const [counter, setCounter] = useState(0);
@@ -24,7 +25,7 @@ const ItemCounter = ({stock, setStockSelected, onAdd}) => {
         <span>{counter}</span>
         <button  className="buttonCounter2" onClick={plusCounter}>+</button>
       </div>
-      <button onClick={()=>onAdd(counter)}>Agregar a carrito</button>
+      <Button className="mx-2 mt-3" variant="outline-success" size="lg" onClick={()=>onAdd(counter)}>Agregar a carrito</Button>
     </>
   );
 };
