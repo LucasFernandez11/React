@@ -1,15 +1,63 @@
+ div .nav__cart {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  position: absolute;
+  right: 10%;
+  top: 45px;
+  padding: 0 5px;
+}
 
-.cartWidge{
-    /* visibility: hidden; */
+div .nav__cart .nav__carrito {
+  font-size: 30px;
+  color: black;
+}  
+div .nav__cart span {
+  color: black;
+  
+}
+
+.cartW-precio{  
+  top: 5px;
+  color: black;  
+  opacity: 1;
+}
+
+div .nav__cart {
+    visibility: hidden;
+    opacity: 1;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
     position: absolute;
     right: 10%;
     top: 45px;
     padding: 0 5px;
-  }
-  .cartW-precio{
+}
+
+div .nav__cart .cartW-precio {
+    position: absolute;
+    right: -30px;
+    top: 5px;
+    color: black;
+    font-weight: 700;
+    opacity: 0;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+div .nav__cart:hover {
+    background-color: rgba(137, 43, 226, 0.534);
+    padding-left: 88px;
+}
   
-  top: 5px;
-  color: black;
+div .nav__cart:hover .cartW-precio {
+    opacity: 1;
+    right: 58px;
+    -webkit-transition: all .5s ease-out .2s;
+    transition: all .5s ease-out .2s;
+}
   
-  opacity: 1;
-  }
+div .nav__cart--show {
+    visibility: visible;
+    opacity: 1;
+}

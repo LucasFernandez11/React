@@ -16,12 +16,11 @@ const ItemDetail = ()=> {
   const { addItem } = useContext(CartContext); 
   const [quantity, setQuantity] = useState(0);
   const [userName, setUserName] = useState("");
-
+  const [count, setCount] = useState(0)
+ 
   const onAdd = (counter) => {
-    addItem(
-      selectedItem,
-      counter
-    );
+    addItem(selectedItem,counter);
+    setCount(counter)
     //agregando producto
     // console.log(selectedItem.id, selectedItem.name)
   }    
@@ -35,31 +34,30 @@ const ItemDetail = ()=> {
   }, [products]);
   // console.log(selectedItem)  
 
-  return (
-    <div className="container contentProduct d-flex align-items-center">    
-      <CardGroup className="mx-auto container">
-          <Card className="my-3" style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={selectedItem && selectedItem.imagen} alt="selectedItemImage" />
-              <Card.Body>
-                <Card.Title>Producto: {selectedItem && selectedItem.name}</Card.Title>
-                <Card.Text>
-                 <p>
-                    Descripción: {selectedItem && selectedItem.descripcion} 
-                   </p>
-                  <p>
-                    Cantidad disponible: {selectedItem && selectedItem.stock} 
-                    </p>
-                </Card.Text>
-                <ItemCounter stock={selectedItem && selectedItem.stock}  setStockSelected={setStockSelected} onAdd={onAdd}/>
-                
-               <Button className="mx-2 mt-3" variant="outline-success" size="lg"><Link className="my-3 text-decoration-none" to={`/cart/`}>Ir al carrito</Link></Button>
-              </Card.Body>
-          </Card>
-      </CardGroup>
+  return <div className="container contentProduct d-flex align-items-center">   
+         <CardGroup className="mx-auto container">
+              <Card className="my-3" style={{ width: '18rem' }}>
+                  <Card.Img variant="top" src={selectedItem && selectedItem.imagen} alt="selectedItemImage" />
+                  <Card.Body>
+                    <Card.Title>Producto: {selectedItem && selectedItem.name}</Card.Title>
+                    <Card.Text>
+                    <p>
+                        Descripción: {selectedItem && selectedItem.descripcion} 
+                      </p>
+                      <p>
+                        Cantidad disponible: {selectedItem && selectedItem.stock} 
+                        </p>
+                    </Card.Text>
+                    {   count === 0 ?                 
+                        <ItemCounter stock={selectedItem && selectedItem.stock}  setStockSelected={setStockSelected} onAdd={onAdd}/>
+                        :
+                      <Button className="mx-2 mt-3" variant="outline-success" size="lg"><Link className="my-3 text-decoration-none" to={`/cart/`}>Ir al carrito</Link></Button>
+                    }
+                  </Card.Body>
+              </Card>
+          </CardGroup>
+          <Link to='/'>Volver al listado</Link> 
     </div>
-  
-  )
-  
 };
 
 export default ItemDetail;
