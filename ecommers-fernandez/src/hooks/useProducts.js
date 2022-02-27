@@ -1,7 +1,7 @@
-import { collection, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../Firebase/config";
-import { productsAPI } from "../helpers/promises";
+
 
 const useProducts = () => {
     const [products, setProducts] = useState([]);
@@ -26,7 +26,7 @@ const useProducts = () => {
             //    console.log(doc.data())
             // console.log(`${doc.id} => ${doc.data()}`);
           }); 
-          console.log(catalogo)
+        //   console.log(catalogo)
            setProducts(catalogo)
                      
         } catch (error) {

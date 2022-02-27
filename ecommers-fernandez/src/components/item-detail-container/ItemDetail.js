@@ -52,7 +52,7 @@ const ItemDetail = ()=> {
                 </Card.Text>
                 <ItemCounter stock={selectedItem && selectedItem.stock}  setStockSelected={setStockSelected} onAdd={onAdd}/>
                 
-               <Button className="mx-2 mt-3" variant="outline-success" size="lg"><Link className="my-3 text-decoration-none" to={`/cart/`}>Terminar compra</Link></Button>
+               <Button className="mx-2 mt-3" variant="outline-success" size="lg"><Link className="my-3 text-decoration-none" to={`/cart/`}>Ir al carrito</Link></Button>
               </Card.Body>
           </Card>
       </CardGroup>
