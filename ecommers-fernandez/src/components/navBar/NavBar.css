@@ -1,12 +1,15 @@
 .activeClass {
-    color: blue;
+    color: green;
+    
   }
   .header{
+    background-color: rgba(12, 26, 133, 0.212);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
   }
+  
    .tituloNav {    
     display: flex;   
     justify-content: space-between;
@@ -16,14 +19,7 @@
   
    .tituloH1 {    
     font-size: 60px;   
-    color: black;
+    color: rgba(14, 14, 150, 0.74);
     text-decoration: none;
   }
-  /* .cartWidge{
-    visibility: hidden;
-    position: absolute;
-    right: 10%;
-    top: 45px;
-    padding: 0 5px;
-  } */
-
+  

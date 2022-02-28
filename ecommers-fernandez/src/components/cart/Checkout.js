@@ -41,7 +41,7 @@ const Checkout = () => {
           {
             orderId === 0 ?                
              <>
-              <Form className='container row justify-content-center mx-auto w-50'>
+              <Form className='container row justify-content-center mx-auto w-50 py-5'>
                  <Form.Group className="mb-3" value={buyer.name}>
                  <Form.Label>Nombre</Form.Label>
                  <Form.Control  type="name" placeholder="Nombre" onChange={(e)=> setBuyer({...buyer, name: e.target.value})} />                

@@ -3,12 +3,13 @@ import Item from "../item/Item";
 
 const ItemList = ({products}) => {
   return (
-    <CardGroup >
+    <>
+    <h1> Catalogo</h1>         
     
-        {products?.map(p => <Item key={p.id} p={p}/>)}   
-        
-      
+    <CardGroup > 
+        {products?.map(p => <Item key={p.id} p={p}/>)}     
     </CardGroup>
+    </>
   )
 }
 

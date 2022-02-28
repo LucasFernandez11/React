@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  color: blueviolet;
-  
+  color: rgba(82, 14, 146, 0.897);
+  background-color:  rgba(11, 85, 119, 0.26);;
 }
 .class-icon{
   width: 30px;
@@ -28,9 +28,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;  
   font-size: 18px;
-  background-color: whitesmoke;
+  background-color: transparent;
 }
 .imagenProducto, img {
   display: flex;
@@ -38,3 +38,4 @@
   width: 50vh;
   height: 45vh;
 }
+

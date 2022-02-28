@@ -11,16 +11,16 @@
 
 div .nav__cart .nav__carrito {
   font-size: 30px;
-  color: black;
+  color: rgba(0, 0, 0, 0.623);
 }  
 div .nav__cart span {
-  color: black;
+  color:rgba(0, 0, 0, 0.623);
   
 }
 
 .cartW-precio{  
   top: 5px;
-  color: black;  
+  color:rgba(0, 0, 0, 0.623);  
   opacity: 1;
 }
 
@@ -39,7 +39,7 @@ div .nav__cart .cartW-precio {
     position: absolute;
     right: -30px;
     top: 5px;
-    color: black;
+    color: rgba(21, 21, 138, 0.753);
     font-weight: 700;
     opacity: 0;
     -webkit-transition: all .5s ease-out;

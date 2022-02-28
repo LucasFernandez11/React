@@ -34,8 +34,9 @@ const ItemDetail = ()=> {
   }, [products]);
   // console.log(selectedItem)  
 
-  return <div className="container contentProduct d-flex align-items-center">   
-         <CardGroup className="mx-auto container">
+  return <div className="container contentProduct d-flex align-items-center w-50">
+    <h2>Detalle del producto</h2>   
+         <CardGroup className="mx-auto container bg-transparent w-100 ">
               <Card className="my-3" style={{ width: '18rem' }}>
                   <Card.Img variant="top" src={selectedItem && selectedItem.imagen} alt="selectedItemImage" />
                   <Card.Body>
@@ -56,7 +57,9 @@ const ItemDetail = ()=> {
                   </Card.Body>
               </Card>
           </CardGroup>
-          <Link to='/'>Volver al listado</Link> 
+          
+            
+             <Link className="mb-5" to='/'><Button variant="outline-danger" size="lg">Volver al listado</Button></Link> 
     </div>
 };
 

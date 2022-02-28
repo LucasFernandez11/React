@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import CartWidge from "../cart/CartWidge";
@@ -11,42 +11,35 @@ const NavBar = () => {
                 <h1 className="tituloH1">Bug-Technology</h1>
             </Link>
         <CartWidge className="cartWidge text-decoration-none"/>
-      </div>
-   
+      </div>   
 
-    <Navbar bg="light" expand="lg">
-      <Container>
-        {/* <Navbar.Brand>
-          <Link to="/">My E-Commerce</Link>
-        </Navbar.Brand> */}
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">           
-            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+          <Nav className="me-auto"> 
+          <Nav.Link href="/" >Principal</Nav.Link>          
+            <NavDropdown title="Categorias" id="dropdown-button-dark-example1">
               <NavDropdown.Item>
-                <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
-                  to="category/phones"> SmartPhones</NavLink>
+                <NavLink 
+                  to="category/phones"> <Button className="px-5" variant="outline-primary" size="sm">SmartPhones</Button></NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
-                  to="category/tv"> TV </NavLink>
+                <NavLink 
+                  to="category/accesorios"><Button className="px-5" variant="outline-primary" size="sm">Accesorios Gamer</Button>  </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
                 <NavLink
-                  className={({ isActive }) => isActive ? "activeClass" : undefined}
-                  to="category/pc">Computadoras</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
+                 
+                  to="category/pc"><Button className="px-5" variant="outline-primary" size="sm">Computadoras</Button>  </NavLink>
+              </NavDropdown.Item>            
               <NavDropdown.Item>
-                <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
-                  to="category/accesorios"> Accesorios Gamer</NavLink>
+                <NavLink
+                  to="category/tv"> <Button className="px-5" variant="outline-primary" size="sm">TV</Button>   </NavLink>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        {/* <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
-               to="/cart"><CartWidge /></NavLink> */}
-        
       </Container>
     </Navbar>
     </header>

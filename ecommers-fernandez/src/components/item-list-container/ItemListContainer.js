@@ -18,8 +18,7 @@ const ItemListContainer = () => {
   return (
    
     <div>
-      <h1> Catalogo Completo</h1>
-      <hr />
+           
       {
        !loading ?<ItemList products={filterProducts}/> : <LinearProgress />
       } 

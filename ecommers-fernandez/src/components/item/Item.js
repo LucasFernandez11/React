@@ -14,14 +14,14 @@ const Item = ({p}) => {
   return (  
     <>
       <CardGroup className="mx-auto">
-          <Card className="my-3" style={{ width: '18rem' }}>
+          <Card className="my-3 bg-transparent" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={imagen} alt={name} />
               <Card.Body>
                 <Card.Title>Producto: {name}</Card.Title>
                 <Card.Text>
                   {/* Descripción: {description}  */}
                 </Card.Text>
-                <Link to={`/detail/${id}`}>Seleccionar producto</Link>
+                <Link to={`/detail/${id}`}><Button>Seleccionar producto</Button></Link>
               </Card.Body>
           </Card>
       </CardGroup>
